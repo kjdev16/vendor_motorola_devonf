@@ -873,7 +873,7 @@ cc_prebuilt_library_shared {
                 "libcutils",
                 "libpq_prot",
                 "libhidlmemory",
-                "libtinyxml2-bp2a",
+                "libtinyxml2-legacy",
                 "vendor.mediatek.hardware.pq@2.0",
                 "vendor.mediatek.hardware.pq@2.1",
                 "vendor.mediatek.hardware.pq@2.2",
@@ -11419,7 +11419,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib/libcodec2_mtk_vdec.so",
             ],
             shared_libs: [
-                "libformatter",
+                "libformatter-v34",
                 "libdpframework",
                 "android.hardware.graphics.bufferqueue@2.0",
                 "libui",
@@ -11455,7 +11455,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libcodec2_mtk_vdec.so",
             ],
             shared_libs: [
-                "libformatter",
+                "libformatter-v34",
                 "libdpframework",
                 "android.hardware.graphics.bufferqueue@2.0",
                 "libui",
@@ -11504,7 +11504,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib/libcodec2_mtk_venc.so",
             ],
             shared_libs: [
-                "libformatter",
+                "libformatter-v34",
                 "libdpframework",
                 "android.hardware.graphics.bufferqueue@2.0",
                 "libui",
@@ -11538,7 +11538,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libcodec2_mtk_venc.so",
             ],
             shared_libs: [
-                "libformatter",
+                "libformatter-v34",
                 "libdpframework",
                 "android.hardware.graphics.bufferqueue@2.0",
                 "libui",
@@ -11955,7 +11955,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libformatter",
+    name: "libformatter-v34",
     owner: "motorola",
     strip: {
         none: true,
@@ -11963,7 +11963,7 @@ cc_prebuilt_library_shared {
     target: {
         android_arm: {
             srcs: [
-                "proprietary/vendor/lib/libformatter.so",
+                "proprietary/vendor/lib/libformatter-v34.so",
             ],
             shared_libs: [
                 "libion_mtk",
@@ -11982,7 +11982,7 @@ cc_prebuilt_library_shared {
         },
         android_arm64: {
             srcs: [
-                "proprietary/vendor/lib64/libformatter.so",
+                "proprietary/vendor/lib64/libformatter-v34.so",
             ],
             shared_libs: [
                 "libion_mtk",
@@ -14096,7 +14096,8 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libneuron_graph_delegate.mtk",
+    name: "libneuron_graph_delegate.mtk_vendor",
+    stem: "libneuron_graph_delegate.mtk",
     owner: "motorola",
     strip: {
         none: true,
@@ -14112,7 +14113,7 @@ cc_prebuilt_library_shared {
                 "libutils",
                 "libcutils",
                 "libhidlbase",
-                "vendor.mediatek.hardware.apuware.utils@2.0",
+                "vendor.mediatek.hardware.apuware.utils@2.0_vendor",
                 "libc++",
                 "libc",
                 "libm",
@@ -14129,7 +14130,7 @@ cc_prebuilt_library_shared {
                 "libutils",
                 "libcutils",
                 "libhidlbase",
-                "vendor.mediatek.hardware.apuware.utils@2.0",
+                "vendor.mediatek.hardware.apuware.utils@2.0_vendor",
                 "libc++",
                 "libc",
                 "libm",
@@ -14773,7 +14774,8 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libtflite_mtk",
+    name: "libtflite_mtk_vendor",
+    stem: "libtflite_mtk",
     owner: "motorola",
     strip: {
         none: true,
@@ -18991,7 +18993,8 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.mediatek.hardware.apuware.utils@2.0",
+    name: "vendor.mediatek.hardware.apuware.utils@2.0_vendor",
+    stem: "vendor.mediatek.hardware.apuware.utils@2.0",
     owner: "motorola",
     strip: {
         none: true,
@@ -21689,8 +21692,8 @@ cc_prebuilt_library_shared {
                 "libcutils",
                 "libhidlmemory",
                 "libfmq",
-                "vendor.mediatek.hardware.apuware.apusys@2.0",
-                "vendor.mediatek.hardware.apuware.apusys@2.1",
+                "vendor.mediatek.hardware.apuware.apusys@2.0_vendor",
+                "vendor.mediatek.hardware.apuware.apusys@2.1_vendor",
                 "android.hidl.allocator@1.0",
                 "android.hidl.memory@1.0",
                 "libc++",
@@ -21722,7 +21725,7 @@ cc_prebuilt_library_shared {
                 "libutils",
                 "libcutils",
                 "libhidlmemory",
-                "vendor.mediatek.hardware.apuware.hmp@1.0",
+                "vendor.mediatek.hardware.apuware.hmp@1.0_vendor",
                 "android.hidl.allocator@1.0",
                 "android.hidl.memory@1.0",
                 "libc++",
@@ -21758,7 +21761,7 @@ cc_prebuilt_library_shared {
                 "libdmabufheap",
                 "libgralloc_extra",
                 "libnativewindow",
-                "vendor.mediatek.hardware.apuware.utils@2.0",
+                "vendor.mediatek.hardware.apuware.utils@2.0_vendor",
                 "libhidlmemory",
                 "android.hidl.memory@1.0",
                 "android.hidl.allocator@1.0",
@@ -21771,6 +21774,34 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     check_elf_files: false,
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "android.frameworks.displayservice@1.0",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/android.frameworks.displayservice@1.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
     prefer: true,
     soc_specific: true,
 }
@@ -22074,7 +22105,7 @@ cc_prebuilt_library_shared {
                 "libhardware",
                 "libaudioutils",
                 "libtinyalsa",
-                "libtinyxml2-bp2a",
+                "libtinyxml2-legacy",
                 "libaudiotoolkit_vendor",
                 "libmedia_helper",
                 "libladder",
@@ -26154,7 +26185,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libtinyxml2-bp2a",
+    name: "libtinyxml2-legacy",
     owner: "motorola",
     strip: {
         none: true,
@@ -26162,7 +26193,7 @@ cc_prebuilt_library_shared {
     target: {
         android_arm64: {
             srcs: [
-                "proprietary/vendor/lib64/libtinyxml2-bp2a.so",
+                "proprietary/vendor/lib64/libtinyxml2-legacy.so",
             ],
             shared_libs: [
                 "liblog",
@@ -26402,35 +26433,6 @@ cc_prebuilt_library_shared {
                 "liblog",
                 "libcutils",
                 "libapusys",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libwifi-hal-mtk",
-    owner: "motorola",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libwifi-hal-mtk.so",
-            ],
-            shared_libs: [
-                "libbase",
-                "libcutils",
-                "liblog",
-                "libnl",
-                "libutils",
                 "libc++",
                 "libc",
                 "libm",
@@ -30043,7 +30045,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libmnl",
+    name: "libmnl-mtk",
     owner: "motorola",
     strip: {
         none: true,
@@ -30051,18 +30053,12 @@ cc_prebuilt_library_shared {
     target: {
         android_arm64: {
             srcs: [
-                "proprietary/vendor/lib64/mt6855/libmnl.so",
-            ],
-            shared_libs: [
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
+                "proprietary/vendor/lib64/mt6855/libmnl-mtk.so",
             ],
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     relative_install_path: "mt6855",
     prefer: true,
     soc_specific: true,
@@ -32462,7 +32458,8 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.mediatek.hardware.apuware.apusys@2.0",
+    name: "vendor.mediatek.hardware.apuware.apusys@2.0_vendor",
+    stem: "vendor.mediatek.hardware.apuware.apusys@2.0",
     owner: "motorola",
     strip: {
         none: true,
@@ -32490,7 +32487,8 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.mediatek.hardware.apuware.apusys@2.1",
+    name: "vendor.mediatek.hardware.apuware.apusys@2.1_vendor",
+    stem: "vendor.mediatek.hardware.apuware.apusys@2.1",
     owner: "motorola",
     strip: {
         none: true,
@@ -32501,7 +32499,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/vendor.mediatek.hardware.apuware.apusys@2.1.so",
             ],
             shared_libs: [
-                "vendor.mediatek.hardware.apuware.apusys@2.0",
+                "vendor.mediatek.hardware.apuware.apusys@2.0_vendor",
                 "libhidlbase",
                 "liblog",
                 "libutils",
@@ -32519,7 +32517,8 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.mediatek.hardware.apuware.hmp@1.0",
+    name: "vendor.mediatek.hardware.apuware.hmp@1.0_vendor",
+    stem: "vendor.mediatek.hardware.apuware.hmp@1.0",
     owner: "motorola",
     strip: {
         none: true,
@@ -32593,6 +32592,67 @@ cc_prebuilt_library_shared {
                 "android.hardware.audio.common@7.0",
                 "android.hardware.audio.effect@7.0",
                 "android.hardware.audio@7.0",
+                "android.hidl.safe_union@1.0",
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.mediatek.hardware.bluetooth.audio@2.1",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/vendor.mediatek.hardware.bluetooth.audio@2.1.so",
+            ],
+            shared_libs: [
+                "android.hardware.audio.common@5.0",
+                "android.hidl.safe_union@1.0",
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.mediatek.hardware.bluetooth.audio@2.2",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/vendor.mediatek.hardware.bluetooth.audio@2.2.so",
+            ],
+            shared_libs: [
+                "android.hardware.audio.common@5.0",
+                "vendor.mediatek.hardware.bluetooth.audio@2.1",
                 "android.hidl.safe_union@1.0",
                 "libhidlbase",
                 "liblog",
@@ -32805,34 +32865,6 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "android.hardware.camera.common@1.0",
-                "libhidlbase",
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "vendor.mediatek.hardware.clientapi@1.0",
-    owner: "motorola",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/vendor.mediatek.hardware.clientapi@1.0.so",
-            ],
-            shared_libs: [
                 "libhidlbase",
                 "liblog",
                 "libutils",
@@ -33234,6 +33266,2243 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "libapuwareapusys.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libapuwareapusys.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libion",
+                "libutils",
+                "libcutils",
+                "libhidlbase",
+                "libfmq",
+                "vendor.mediatek.hardware.apuware.apusys@1.0",
+                "android.hidl.allocator@1.0",
+                "android.hidl.memory@1.0",
+                "libhidlmemory",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libapuwareapusys.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libion",
+                "libutils",
+                "libcutils",
+                "libhidlbase",
+                "libfmq",
+                "vendor.mediatek.hardware.apuware.apusys@1.0",
+                "android.hidl.allocator@1.0",
+                "android.hidl.memory@1.0",
+                "libhidlmemory",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libapuwareapusys_v2.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libapuwareapusys_v2.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libion",
+                "libutils",
+                "libcutils",
+                "libhidlbase",
+                "libbinder_ndk",
+                "libandroid",
+                "libfmq",
+                "vendor.mediatek.hardware.apuware.apusys@2.0",
+                "vendor.mediatek.hardware.apuware.apusys@2.1",
+                "vendor.mediatek.hardware.apuware.apusys-V3-ndk",
+                "android.hidl.allocator@1.0",
+                "android.hidl.memory@1.0",
+                "libhidlmemory",
+                "libdmabufheap",
+                "libutilscallstack",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libapuwareapusys_v2.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libion",
+                "libutils",
+                "libcutils",
+                "libhidlbase",
+                "libbinder_ndk",
+                "libandroid",
+                "libfmq",
+                "vendor.mediatek.hardware.apuware.apusys@2.0",
+                "vendor.mediatek.hardware.apuware.apusys@2.1",
+                "vendor.mediatek.hardware.apuware.apusys-V3-ndk",
+                "android.hidl.allocator@1.0",
+                "android.hidl.memory@1.0",
+                "libhidlmemory",
+                "libdmabufheap",
+                "libutilscallstack",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libapuwarehmp.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libapuwarehmp.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libion",
+                "libutils",
+                "libcutils",
+                "libhidlbase",
+                "vendor.mediatek.hardware.apuware.hmp@1.0",
+                "android.hidl.allocator@1.0",
+                "android.hidl.memory@1.0",
+                "libhidlmemory",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libapuwarehmp.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libion",
+                "libutils",
+                "libcutils",
+                "libhidlbase",
+                "vendor.mediatek.hardware.apuware.hmp@1.0",
+                "android.hidl.allocator@1.0",
+                "android.hidl.memory@1.0",
+                "libhidlmemory",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libapuwareutils.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libapuwareutils.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libion",
+                "libutils",
+                "libcutils",
+                "libhidlbase",
+                "vendor.mediatek.hardware.apuware.utils@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libapuwareutils.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libion",
+                "libutils",
+                "libcutils",
+                "libhidlbase",
+                "vendor.mediatek.hardware.apuware.utils@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libapuwareutils_v2.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libapuwareutils_v2.mtk.so",
+            ],
+            shared_libs: [
+                "libbinder_ndk",
+                "liblog",
+                "libion",
+                "libutils",
+                "libcutils",
+                "libhidlbase",
+                "libnativewindow",
+                "vendor.mediatek.hardware.apuware.utils@2.0",
+                "vendor.mediatek.hardware.apuware.utils-V1-ndk",
+                "android.hidl.memory@1.0",
+                "libhidlmemory",
+                "android.hidl.allocator@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libapuwareutils_v2.mtk.so",
+            ],
+            shared_libs: [
+                "libbinder_ndk",
+                "liblog",
+                "libion",
+                "libutils",
+                "libcutils",
+                "libhidlbase",
+                "libnativewindow",
+                "vendor.mediatek.hardware.apuware.utils@2.0",
+                "vendor.mediatek.hardware.apuware.utils-V1-ndk",
+                "android.hidl.memory@1.0",
+                "libhidlmemory",
+                "android.hidl.allocator@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libapuwarexrp.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libapuwarexrp.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libion",
+                "libutils",
+                "libcutils",
+                "libhidlbase",
+                "libfmq",
+                "vendor.mediatek.hardware.apuware.xrp@1.0",
+                "android.hidl.allocator@1.0",
+                "android.hidl.memory@1.0",
+                "libhidlmemory",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libapuwarexrp.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libion",
+                "libutils",
+                "libcutils",
+                "libhidlbase",
+                "libfmq",
+                "vendor.mediatek.hardware.apuware.xrp@1.0",
+                "android.hidl.allocator@1.0",
+                "android.hidl.memory@1.0",
+                "libhidlmemory",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libapuwarexrp_v2.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libapuwarexrp_v2.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libion",
+                "libutils",
+                "libcutils",
+                "libhidlbase",
+                "libfmq",
+                "vendor.mediatek.hardware.apuware.xrp@2.0",
+                "android.hidl.allocator@1.0",
+                "android.hidl.memory@1.0",
+                "libhidlmemory",
+                "libdmabufheap",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libapuwarexrp_v2.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libion",
+                "libutils",
+                "libcutils",
+                "libhidlbase",
+                "libfmq",
+                "vendor.mediatek.hardware.apuware.xrp@2.0",
+                "android.hidl.allocator@1.0",
+                "android.hidl.memory@1.0",
+                "libhidlmemory",
+                "libdmabufheap",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libarmnn_ndk.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libarmnn_ndk.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libcmdl_ndk.mtk",
+                "libdl",
+                "libm",
+                "libc",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libarmnn_ndk.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libcmdl_ndk.mtk",
+                "libdl",
+                "libm",
+                "libc",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libcmdl_ndk.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libcmdl_ndk.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libm",
+                "libdl",
+                "libc",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libcmdl_ndk.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libm",
+                "libdl",
+                "libc",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_cic_ci_compiler.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_cic_ci_compiler.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libion",
+                "libcutils",
+                "libcrypto",
+                "libmvpu_clc_mvpu_elf.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_cic_ci_compiler.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libion",
+                "libcutils",
+                "libcrypto",
+                "libmvpu_clc_mvpu_elf.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_cic_ci_compiler_25.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_cic_ci_compiler_25.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libion",
+                "libcutils",
+                "libmvpu_clc_14_mvpu_elf_25.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_cic_ci_compiler_25.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libion",
+                "libcutils",
+                "libmvpu_clc_14_mvpu_elf_25.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_clc_14_mvpu_debuginfo_25.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_clc_14_mvpu_debuginfo_25.mtk.so",
+            ],
+            shared_libs: [
+                "libmvpu_clc_14_mvpu_elf_25.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_clc_14_mvpu_debuginfo_25.mtk.so",
+            ],
+            shared_libs: [
+                "libmvpu_clc_14_mvpu_elf_25.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_clc_14_mvpu_elf_25.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_clc_14_mvpu_elf_25.mtk.so",
+            ],
+            shared_libs: [
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_clc_14_mvpu_elf_25.mtk.so",
+            ],
+            shared_libs: [
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_clc_14_mvpu_utility_25.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_clc_14_mvpu_utility_25.mtk.so",
+            ],
+            shared_libs: [
+                "libz",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_clc_14_mvpu_utility_25.mtk.so",
+            ],
+            shared_libs: [
+                "libz",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_clc_mvpu_debuginfo.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_clc_mvpu_debuginfo.mtk.so",
+            ],
+            shared_libs: [
+                "libmvpu_clc_mvpu_elf.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_clc_mvpu_debuginfo.mtk.so",
+            ],
+            shared_libs: [
+                "libmvpu_clc_mvpu_elf.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_clc_mvpu_elf.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_clc_mvpu_elf.mtk.so",
+            ],
+            shared_libs: [
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_clc_mvpu_elf.mtk.so",
+            ],
+            shared_libs: [
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_clc_mvpu_utility.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_clc_mvpu_utility.mtk.so",
+            ],
+            shared_libs: [
+                "libz",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_clc_mvpu_utility.mtk.so",
+            ],
+            shared_libs: [
+                "libz",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_config.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_config.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_config.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_engine.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_engine.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "libion",
+                "liblog",
+                "libcutils",
+                "libapuwareapusys_v2.mtk",
+                "libmvpu_config.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_engine.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "libion",
+                "liblog",
+                "libcutils",
+                "libapuwareapusys_v2.mtk",
+                "libmvpu_config.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_engine_25.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_engine_25.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "libion",
+                "liblog",
+                "libcutils",
+                "libapuwareapusys_v2.mtk",
+                "libmvpu_config.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_engine_25.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "libion",
+                "liblog",
+                "libcutils",
+                "libapuwareapusys_v2.mtk",
+                "libmvpu_config.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_engine_25_pub.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_engine_25_pub.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libcutils",
+                "libapuwareapusys_v2.mtk",
+                "libmvpu_config.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_engine_25_pub.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libcutils",
+                "libapuwareapusys_v2.mtk",
+                "libmvpu_config.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_engine_pub.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_engine_pub.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libcutils",
+                "libapuwareapusys_v2.mtk",
+                "libmvpu_config.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_engine_pub.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libcutils",
+                "libapuwareapusys_v2.mtk",
+                "libmvpu_config.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_pattern.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_pattern.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libcutils",
+                "libmvpu_config.mtk",
+                "libmvpu_engine.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_pattern.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libcutils",
+                "libmvpu_config.mtk",
+                "libmvpu_engine.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_pattern_25.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_pattern_25.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libcutils",
+                "libmvpu_config.mtk",
+                "libmvpu_engine_25.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_pattern_25.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libcutils",
+                "libmvpu_config.mtk",
+                "libmvpu_engine_25.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_pattern_25_pub.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_pattern_25_pub.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libcutils",
+                "libmvpu_config.mtk",
+                "libmvpu_engine_25_pub.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_pattern_25_pub.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libcutils",
+                "libmvpu_config.mtk",
+                "libmvpu_engine_25_pub.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_pattern_pub.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_pattern_pub.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libcutils",
+                "libmvpu_config.mtk",
+                "libmvpu_engine_pub.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_pattern_pub.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libcutils",
+                "libmvpu_config.mtk",
+                "libmvpu_engine_pub.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_runtime.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_runtime.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libion",
+                "libcutils",
+                "libmvpu_cic_ci_compiler.mtk",
+                "libmvpu_pattern.mtk",
+                "libmvpu_engine.mtk",
+                "libmvpu_config.mtk",
+                "libmvpu_runtime_builtin.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_runtime.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libion",
+                "libcutils",
+                "libmvpu_cic_ci_compiler.mtk",
+                "libmvpu_pattern.mtk",
+                "libmvpu_engine.mtk",
+                "libmvpu_config.mtk",
+                "libmvpu_runtime_builtin.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_runtime_25.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_runtime_25.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libion",
+                "libcutils",
+                "libmvpu_cic_ci_compiler_25.mtk",
+                "libmvpu_pattern_25.mtk",
+                "libmvpu_engine_25.mtk",
+                "libmvpu_config.mtk",
+                "libmvpu_runtime_builtin_25.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_runtime_25.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libion",
+                "libcutils",
+                "libmvpu_cic_ci_compiler_25.mtk",
+                "libmvpu_pattern_25.mtk",
+                "libmvpu_engine_25.mtk",
+                "libmvpu_config.mtk",
+                "libmvpu_runtime_builtin_25.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_runtime_25_pub.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_runtime_25_pub.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libion",
+                "libcutils",
+                "libmvpu_cic_ci_compiler_25.mtk",
+                "libmvpu_pattern_25_pub.mtk",
+                "libmvpu_engine_25_pub.mtk",
+                "libmvpu_config.mtk",
+                "libmvpu_runtime_builtin_25.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_runtime_25_pub.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libion",
+                "libcutils",
+                "libmvpu_cic_ci_compiler_25.mtk",
+                "libmvpu_pattern_25_pub.mtk",
+                "libmvpu_engine_25_pub.mtk",
+                "libmvpu_config.mtk",
+                "libmvpu_runtime_builtin_25.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_runtime_builtin.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_runtime_builtin.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_runtime_builtin.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_runtime_builtin_25.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_runtime_builtin_25.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_runtime_builtin_25.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpu_runtime_pub.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpu_runtime_pub.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libion",
+                "libcutils",
+                "libmvpu_cic_ci_compiler.mtk",
+                "libmvpu_pattern_pub.mtk",
+                "libmvpu_engine_pub.mtk",
+                "libmvpu_config.mtk",
+                "libmvpu_runtime_builtin.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpu_runtime_pub.mtk.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
+                "libion",
+                "libcutils",
+                "libmvpu_cic_ci_compiler.mtk",
+                "libmvpu_pattern_pub.mtk",
+                "libmvpu_engine_pub.mtk",
+                "libmvpu_config.mtk",
+                "libmvpu_runtime_builtin.mtk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpuop25_mtk_cv.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpuop25_mtk_cv.mtk.so",
+            ],
+            shared_libs: [
+                "libdl",
+                "liblog",
+                "libm",
+                "libc",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpuop25_mtk_cv.mtk.so",
+            ],
+            shared_libs: [
+                "libdl",
+                "liblog",
+                "libm",
+                "libc",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpuop25_mtk_nn.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpuop25_mtk_nn.mtk.so",
+            ],
+            shared_libs: [
+                "libdl",
+                "liblog",
+                "libm",
+                "libc",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpuop25_mtk_nn.mtk.so",
+            ],
+            shared_libs: [
+                "libdl",
+                "liblog",
+                "libm",
+                "libc",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpuop_mtk_cv.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpuop_mtk_cv.mtk.so",
+            ],
+            shared_libs: [
+                "libdl",
+                "liblog",
+                "libm",
+                "libc",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpuop_mtk_cv.mtk.so",
+            ],
+            shared_libs: [
+                "libdl",
+                "liblog",
+                "libm",
+                "libc",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmvpuop_mtk_nn.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libmvpuop_mtk_nn.mtk.so",
+            ],
+            shared_libs: [
+                "libdl",
+                "liblog",
+                "libm",
+                "libc",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libmvpuop_mtk_nn.mtk.so",
+            ],
+            shared_libs: [
+                "libdl",
+                "liblog",
+                "libm",
+                "libc",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libneuron_graph_delegate.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libneuron_graph_delegate.mtk.so",
+            ],
+            shared_libs: [
+                "libnativewindow",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libhidlbase",
+                "vendor.mediatek.hardware.apuware.utils@2.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libneuron_graph_delegate.mtk.so",
+            ],
+            shared_libs: [
+                "libnativewindow",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libhidlbase",
+                "vendor.mediatek.hardware.apuware.utils@2.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libneuronusdk_adapter.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libneuronusdk_adapter.mtk.so",
+            ],
+            shared_libs: [
+                "libnativewindow",
+                "libm",
+                "libdl",
+                "libz",
+                "liblog",
+                "libc",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libneuronusdk_adapter.mtk.so",
+            ],
+            shared_libs: [
+                "libnativewindow",
+                "libm",
+                "libdl",
+                "libz",
+                "liblog",
+                "libc",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libnir_neon_driver_ndk.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libnir_neon_driver_ndk.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libm",
+                "libdl",
+                "libc",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libnir_neon_driver_ndk.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libm",
+                "libdl",
+                "libc",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libtflite_mtk.mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libtflite_mtk.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libruy",
+                "libtextclassifier_hash",
+                "libnativewindow",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libtflite_mtk.mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libruy",
+                "libtextclassifier_hash",
+                "libnativewindow",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libtflite_mtk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libtflite_mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libruy",
+                "libtextclassifier_hash",
+                "libnativewindow",
+                "libion",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libtflite_mtk.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libruy",
+                "libtextclassifier_hash",
+                "libnativewindow",
+                "libion",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.mediatek.hardware.apuware.apusys-V3-ndk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/vendor.mediatek.hardware.apuware.apusys-V3-ndk.so",
+            ],
+            shared_libs: [
+                "libbinder_ndk",
+                "android.hardware.common-V2-ndk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/vendor.mediatek.hardware.apuware.apusys-V3-ndk.so",
+            ],
+            shared_libs: [
+                "libbinder_ndk",
+                "android.hardware.common-V2-ndk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.mediatek.hardware.apuware.apusys@1.0",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/vendor.mediatek.hardware.apuware.apusys@1.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/vendor.mediatek.hardware.apuware.apusys@1.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.mediatek.hardware.apuware.apusys@2.0",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/vendor.mediatek.hardware.apuware.apusys@2.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/vendor.mediatek.hardware.apuware.apusys@2.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.mediatek.hardware.apuware.apusys@2.1",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/vendor.mediatek.hardware.apuware.apusys@2.1.so",
+            ],
+            shared_libs: [
+                "vendor.mediatek.hardware.apuware.apusys@2.0",
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/vendor.mediatek.hardware.apuware.apusys@2.1.so",
+            ],
+            shared_libs: [
+                "vendor.mediatek.hardware.apuware.apusys@2.0",
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.mediatek.hardware.apuware.hmp@1.0",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/vendor.mediatek.hardware.apuware.hmp@1.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/vendor.mediatek.hardware.apuware.hmp@1.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.mediatek.hardware.apuware.utils-V1-ndk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/vendor.mediatek.hardware.apuware.utils-V1-ndk.so",
+            ],
+            shared_libs: [
+                "libbinder_ndk",
+                "android.hardware.common-V2-ndk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/vendor.mediatek.hardware.apuware.utils-V1-ndk.so",
+            ],
+            shared_libs: [
+                "libbinder_ndk",
+                "android.hardware.common-V2-ndk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.mediatek.hardware.apuware.utils@1.0",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/vendor.mediatek.hardware.apuware.utils@1.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/vendor.mediatek.hardware.apuware.utils@1.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.mediatek.hardware.apuware.utils@2.0",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/vendor.mediatek.hardware.apuware.utils@2.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/vendor.mediatek.hardware.apuware.utils@2.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.mediatek.hardware.apuware.xrp@1.0",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/vendor.mediatek.hardware.apuware.xrp@1.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/vendor.mediatek.hardware.apuware.xrp@1.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.mediatek.hardware.apuware.xrp@2.0",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/vendor.mediatek.hardware.apuware.xrp@2.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/vendor.mediatek.hardware.apuware.xrp@2.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "libcomutils",
     owner: "motorola",
     strip: {
@@ -33522,6 +35791,7 @@ cc_prebuilt_library_shared {
                 "proprietary/system_ext/lib64/libsink-mtk.so",
             ],
             shared_libs: [
+                "libaudioclient_shim",
                 "libbinder",
                 "libcutils",
                 "libgui",
@@ -33756,36 +36026,16 @@ android_app_import {
     system_ext_specific: true,
 }
 
-dex_import {
-    name: "mediatek-common",
+android_app_import {
+    name: "MtkTelephonyAssist",
     owner: "motorola",
-    jars: [
-        "proprietary/system/framework/mediatek-common.jar",
-    ],
-}
-
-dex_import {
-    name: "mediatek-framework",
-    owner: "motorola",
-    jars: [
-        "proprietary/system/framework/mediatek-framework.jar",
-    ],
-}
-
-dex_import {
-    name: "mediatek-ims-base",
-    owner: "motorola",
-    jars: [
-        "proprietary/system/framework/mediatek-ims-base.jar",
-    ],
-}
-
-dex_import {
-    name: "mediatek-ims-oem-plugin",
-    owner: "motorola",
-    jars: [
-        "proprietary/system/framework/mediatek-ims-oem-plugin.jar",
-    ],
+    apk: "proprietary/system_ext/priv-app/MtkTelephonyAssist/MtkTelephonyAssist.apk",
+    certificate: "platform",
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,
+    system_ext_specific: true,
 }
 
 dex_import {
@@ -33803,6 +36053,24 @@ dex_import {
         "proprietary/vendor/framework/com.fingerprints.extension.jar",
     ],
     soc_specific: true,
+}
+
+dex_import {
+    name: "mediatek-ims-base",
+    owner: "motorola",
+    jars: [
+        "proprietary/system_ext/framework/mediatek-ims-base.jar",
+    ],
+    system_ext_specific: true,
+}
+
+dex_import {
+    name: "mediatek-ims-oem-plugin",
+    owner: "motorola",
+    jars: [
+        "proprietary/system_ext/framework/mediatek-ims-oem-plugin.jar",
+    ],
+    system_ext_specific: true,
 }
 
 prebuilt_etc_xml {
@@ -34138,33 +36406,6 @@ cc_prebuilt_binary {
             shared_libs: [
                 "libcutils",
                 "liblog",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    strip: {
-        none: true,
-    },
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_binary {
-    name: "fpc_tee_test",
-    owner: "motorola",
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/bin/fpc_tee_test",
-            ],
-            shared_libs: [
-                "liblog",
-                "libcutils",
-                "libMcClient",
                 "libc++",
                 "libc",
                 "libm",
@@ -35202,64 +37443,6 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_binary {
-    name: "kpgather",
-    owner: "motorola",
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/bin/kpgather",
-            ],
-            shared_libs: [
-                "libcutils",
-                "libadropbox",
-                "libutils",
-                "libcrypto",
-                "liblog",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    strip: {
-        none: true,
-    },
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_binary {
-    name: "kpreadwrite",
-    owner: "motorola",
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/bin/kpreadwrite",
-            ],
-            shared_libs: [
-                "libcutils",
-                "libadropbox",
-                "libutils",
-                "libcrypto",
-                "liblog",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    strip: {
-        none: true,
-    },
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_binary {
     name: "lbs_hidl_service",
     owner: "motorola",
     target: {
@@ -35328,7 +37511,7 @@ cc_prebuilt_binary {
             ],
             shared_libs: [
                 "android.hardware.sensors@1.0-convert-shared",
-                "libmnl",
+                "libmnl-mtk",
                 "libcurl",
                 "libcutils",
                 "libnvram",
@@ -35764,41 +37947,6 @@ sh_binary {
     owner: "motorola",
     src: "proprietary/vendor/bin/vendor.mmi.cxp.sh",
     filename: "vendor.mmi.cxp.sh",
-    soc_specific: true,
-}
-
-cc_prebuilt_binary {
-    name: "volte_clientapi_ua",
-    owner: "motorola",
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/bin/volte_clientapi_ua",
-            ],
-            shared_libs: [
-                "libbase",
-                "libcutils",
-                "libfmq",
-                "liblog",
-                "libutils",
-                "libhardware",
-                "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
-                "vendor.mediatek.hardware.clientapi@1.0",
-                "libhardware_legacy",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    strip: {
-        none: true,
-    },
-    prefer: true,
     soc_specific: true,
 }
 
@@ -37757,10 +39905,10 @@ install_symlink {
 }
 
 install_symlink {
-    name: "vendor_lib64_libmnl_so",
+    name: "vendor_lib64_libmnl-mtk_so",
     soc_specific: true,
-    installed_location: "lib64/libmnl.so",
-    symlink_target: "/vendor/lib64/mt6855/libmnl.so",
+    installed_location: "lib64/libmnl-mtk.so",
+    symlink_target: "/vendor/lib64/mt6855/libmnl-mtk.so",
 }
 
 install_symlink {
